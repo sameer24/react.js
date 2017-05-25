@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>First Component ReactDOM</title>
+    <style>
+        .check {
+            color: blue;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container"></div>
+
+    <script src="./public/scripts/react/react.js"></script>
+    <script src="./public/scripts/react/react-dom.js"></script>
+    <script>
+
+        var Hello = React.createClass({
+            render : function(){
+                return  React.createElement("h2",{"id": "hOne",}, "Hellow World 2!");            }
+        });
+
+        ReactDOM.render(React.createElement(Hello), document.getElementById("container"));
+
+    </script>
+</body>
+
+</html>

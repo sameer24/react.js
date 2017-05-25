@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>First Page ReactDOM</title>
+    <style>
+        .check {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container"></div>
+
+    <script src="./public/scripts/react/react.js"></script>
+    <script src="./public/scripts/react/react-dom.js"></script>
+    <script>
+        // Element Create Option -1
+        var h1 = React.DOM.h1({
+            "id": "hOne"
+        }, "Hellow World!");
+        ReactDOM.render(h1, document.getElementById("container"));
+
+        // Element Create Option -2
+        var h2 = React.createElement("h2",{
+            "id": "hOne",
+        }, "Hellow World 2!");
+        ReactDOM.render(h2, document.getElementById("container"));
+
+        var p1 = React.DOM.p({"id": "hOneP","className":"check"}, "Hellow World - Para!");        
+        ReactDOM.render(p1, document.getElementById("container"));
+        var li = React.DOM.li({"id": "hOneli",}, p1);
+        var ul = React.DOM.ul({"id": "hOneul",}, li);
+
+        ReactDOM.render(ul, document.getElementById("container"));
+    </script>
+</body>
+
+</html>

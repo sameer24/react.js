@@ -1,0 +1,23 @@
+{
+  "name": "da1_demos",
+  "homepage": "https://github.com/sameer6347/react.js",
+  "authors": [
+    "Sameer kelkar <sameer.kelkar@synechron.com>"
+  ],
+  "description": "Demos for Day 1",
+  "main": "",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/scripts",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "react": "^15.5.4",
+    "babel": "^5.8.38"
+  }
+}
