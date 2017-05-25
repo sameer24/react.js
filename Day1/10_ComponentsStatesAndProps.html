@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <title>First Component ReactDOM</title>
+    <style>
+        .check {
+            color: blue;
+        }
+    </style>
+</head>
+
+<body class="container">
+    <div id="container1" class="row"></div>
+    <script src="./public/scripts/react/react.js"></script>
+    <script src="./public/scripts/react/react-dom.js"></script>
+    <script src="./public/scripts/babel/browser.js"></script>
+    <script type="text/babel">
+    // If we have to access the property in the constructor then we have to initialize the React i.e. 
+    // need to pass the value to super
+
+        class Button extends React.Component {
+            
+            /*constructor(){
+                super();
+                console.log(this.props);
+                this.state = {count : 0}
+            }
+            */
+
+            constructor(parm){
+                super(parm);
+                console.log(this.props);
+                this.state = {count : 0}
+            }
+
+            handelClick(){
+                console.log(this)
+                this.setState({count : this.state.count+1})
+                //alert ('Button clicked....');
+            }
+
+            // this... needs to be passed if we have to use the this
+            render(){
+                 console.log(this.props);
+                 return <button type="" onClick={this.handelClick.bind(this)}>{this.props.text} - {this.state.count} </button> 
+            }
+            
+        }
+
+        var pName = 'Sameer 29'; //properties of Component
+        ReactDOM.render(<Button text={pName}/>, document.getElementById("container1"));
+    </script>
+</body>
+
+</html>

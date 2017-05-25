@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        .check {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container"></div>
+
+    <script src="./public/scripts/react/react.js"></script>
+    <script src="./public/scripts/react/react-dom.js"></script>
+    <script src="./public/scripts/babel/browser.js"></script>
+    <script type="text/babel">
+        class Button extends React.Component { 
+            localClick(){
+                this.props.handleClick(this.props.incBy);
+            }
+
+            render() { 
+                return <button onClick={this.localClick.bind(this)}>Inc {this.props.incBy}</button>;
+            }
+        } 
+
+        class Result extends React.Component { 
+            render() { 
+                return <h2>Result: {this.props.rCount}</h2>;
+            }
+        } 
+
+        class Main extends React.Component {
+            constructor(){
+                super();
+                this.state = {count:0};
+            }
+
+            changeCounter(by){
+                this.setState({count:this.state.count+by});
+            }
+
+            render(){
+                return (
+                    <div>
+                        <Result rCount={this.state.count}/>
+                        <Button incBy={5} handleClick={this.changeCounter.bind(this)}/>
+                        <Button incBy={10} handleClick={this.changeCounter.bind(this)}/>
+                        <Button incBy={15} handleClick={this.changeCounter.bind(this)}/>
+                        <Button incBy={20} handleClick={this.changeCounter.bind(this)}/>
+                    </div>
+                );
+            }
+        }
+        
+        ReactDOM.render(<Main/>, document.getElementById("container"));
+    </script>
+</body>
+</html>

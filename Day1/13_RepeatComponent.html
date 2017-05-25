@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+    <div id="container"></div>
+
+    <script src="./public/scripts/react/react.js"></script>
+    <script src="./public/scripts/react/react-dom.js"></script>
+    <script src="./public/scripts/babel/browser.js"></script>
+    <script type="text/babel">
+        class Main extends React.Component {
+            render(){
+                var lItems = this.props.items.map(function(item,index){
+                    return <li key={index}>{item}</li>;
+                })
+                return (
+                    <ul>
+                        {lItems}
+                    </ul>
+                );
+            }
+        }
+        
+        var names = ["Ram","Mark","Rahul","Pravin","Abhijeet"];
+
+        ReactDOM.render(<Main items={names}/>, document.getElementById("container"));
+    </script>
+</body>
+</html>

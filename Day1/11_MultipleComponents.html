@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        .check {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="container"></div>
+
+    <script src="./public/scripts/react/react.js"></script>
+    <script src="./public/scripts/react/react-dom.js"></script>
+    <script src="./public/scripts/babel/browser.js"></script>
+    <script type="text/babel">
+        class Button extends React.Component { 
+            constructor(props){
+                super(props);
+                console.log(this.props);
+                this.state = { count: 0 };
+            }
+
+            handleClick(){
+                console.log(this);
+                this.setState({count: this.state.count + 1});
+            }
+
+            render() { 
+                return <button onClick={this.handleClick.bind(this)}>{this.props.text} - {this.state.count}</button>;
+            }
+        } 
+
+        class Main extends React.Component{
+            render(){
+                return (
+                    <div>
+                        <Button text="B1"/>
+                        <br/>
+                        <Button text="B2"/>
+                    </div>
+                );
+            }
+        }
+        
+        ReactDOM.render(<Main/>, document.getElementById("container"));
+    </script>
+</body>
+</html>
+
+<!--class Button extends React.Component { 
+            constructor(props){
+                super(props);
+                console.log(this.props);
+                this.state = { count: 0 };
+            }
+
+            handleClick(){
+                console.log(this);
+                this.setState({count: this.state.count + 1});
+            }
+
+            render() { 
+                return (<div>
+                        <button onClick={this.handleClick.bind(this)}>{this.props.text} - {this.state.count}</button>
+                        <br/>
+                       <button onClick={this.handleClick.bind(this)}>{this.props.text} - {this.state.count}</button>
+                    </div>);
+            }
+        } -->
