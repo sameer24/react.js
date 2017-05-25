@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+    <script>
+        // --- Memory consumption is high and not preffred though it is correct.        
+        // function Person(n) {
+        //     this.name = n;
+        //     this.getName = function(){
+        //         return this.name;
+        //     }
+        //     this.setName = function(n){
+        //         this.name = n;
+        //     }
+        // }
+
+        // ---- This is preffred way of writing code for JavaScript so Memory consumption is low
+        // var Person = (function () {
+        //     function Person(n) {
+        //         this.name = n;
+        //     }
+
+        //     Person.prototype.getName = function () {
+        //         return this.name;
+        //     }
+
+        //     Person.prototype.setName = function (n) {
+        //         this.name = n;
+        //     }
+
+        //     return Person;
+        // })();
+
+        // -- ES6 way of writting a class for javascript. Memory consumption is same as prototype
+        class Person {
+            constructor(n) {
+                this.name = n;
+            }
+            getName() {
+                return this.name;
+            }
+            setName(n) {
+                this.name = n;
+            }
+        }
+
+        var p1 = new Person("Manish");
+        console.log(p1.getName());
+        p1.setName("Abhijeet");
+        console.log(p1.getName());
+
+        var p2 = new Person("Subodh");
+        console.log(p2.getName());
+        p2.setName("Ramakant");
+        console.log(p2.getName());
+    </script>
+</body>
+
+</html>

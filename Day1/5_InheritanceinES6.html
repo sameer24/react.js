@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+    <script>
+        class Vehicale{
+            constructor(n){
+                this.make = n;
+
+            }
+            start(){
+                return this.make +" Engine Started";
+            }
+        }
+
+//constructor chaining is required then we have to called the base class constructor using super
+        class FourWheeler extends Vehicale{
+            constructor(make,model){
+                super(make);
+                this.model = model;
+            }
+            // start(){
+            //     return "FourWheeler Engine Started";
+            // }
+            start(){
+                return super.start()+", model is " + this.model;
+            }
+        }
+
+        var v1 = new FourWheeler('Ford','Mustang');
+        //var v1 = new Vehicale('Ford');
+        console.log(v1.start());
+
+    </script>
+</body>
+
+</html>
