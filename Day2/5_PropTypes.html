@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        </style>
+</head>
+
+<body>
+    <div id="container"></div>
+
+    <script src="./public/scripts/react/react.js"></script>
+    <script src="./public/scripts/react/react-dom.js"></script>
+    <script src="./public/scripts/babel/browser.js"></script>
+    <script type="text/babel">
+        class Main extends React.Component{
+            render(){
+                return (
+                    <div>
+                        <h1>Hello time is: {this.props.now}</h1>
+
+                        <h1>Age is: {this.props.age}</h1>
+                    </div>
+                );
+            }
+        }
+
+        // DISPLYNAME is Class Propertis 
+        Main.displayName = "MyMain";
+
+        // PROPTYPES is Class Propertis 
+        Main.propTypes = {
+            now: React.PropTypes.string.isRequired,
+            age: function(props,propName,componentName){
+                if(props[propName]<30)
+                    return new Error(componentName + " ----- " + propName + " must be greater than 30");
+            }
+        }
+
+        
+
+        ReactDOM.render(<Main now={new Date().toString()} age={20}/>, document.getElementById("container"));
+    </script>
+</body>
+
+</html>

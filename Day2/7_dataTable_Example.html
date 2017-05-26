@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+
+<body>
+    <div id="container"></div>
+
+    <script src="./public/scripts/react/react.js"></script>
+    <script src="./public/scripts/react/react-dom.js"></script>
+    <script src="./public/scripts/babel/browser.js"></script>
+    <script src="./public/scripts/jquery/dist/jquery.js"></script>
+
+    <script type="text/babel">
+        class Th extends React.Component{
+            render(){
+                var thArr = new Array();
+                for(var key in this.props.item){
+                    thArr.push(key);
+                }
+
+                var ths = thArr.map(function(item,index){
+                    return <th key={index}>{item.toUpperCase()}</th>;
+                })
+
+                return <tr>{ths}</tr>;
+            }
+        }
+
+        class Td extends React.Component{
+            render(){
+                var thArr = new Array();
+                for(var key in this.props.item[0]){
+                    thArr.push(key);
+                }
+
+                var tdArr = new Array();
+                for(var key in this.props.item){                    
+                        tdArr.push(this.props.item[key]['userId'],this.props.item[key]['id']);
+                        
+                }
+
+                this.props.item.forEach(function(item, index, array) {
+                            //console.log(item);
+                            var temp = item;
+                            temp.forEach(function(item1, index1, array1) {
+                                console.log(item1);
+                            });
+                        });
+
+
+console.log(thArr);
+               
+
+                return <tr></tr>;
+            }
+        }
+
+        class DataTable extends React.Component{
+            render(){
+                var item = this.props.items[0];
+                var ths = <Th item={item}/>;
+                var tds = <Td item={this.props.items}/>;
+                return (
+                    <table className="table">
+                        <thead>
+                            {ths}
+                            {tds}
+                        </thead>
+                    </table>
+                );
+            }
+        }
+
+        $(document).ready(function(){
+             var url = "http://jsonplaceholder.typicode.com/posts";
+
+             $.getJSON(url).done(function(data){
+                ReactDOM.render(<DataTable items={data}/>, document.getElementById("container"));
+             });
+        });
+    </script>
+</body>
+
+</html>
