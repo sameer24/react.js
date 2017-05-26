@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        </style>
+</head>
+
+<body>
+    <div id="container"></div>
+
+    <script src="./public/scripts/react/react.js"></script>
+    <script src="./public/scripts/react/react-dom.js"></script>
+    <script src="./public/scripts/babel/browser.js"></script>
+    <script type="text/babel">
+        class Text extends React.Component{
+            render(){
+                var myStyle = {
+                    color: this.props.fColor,
+                    backgroundColor: this.props.bColor
+                };
+
+                return <p style={myStyle}>{this.props.content}</p>
+            }
+        }
+
+        Text.defaultProps = {
+            fColor: 'white',
+            bColor: 'green'
+        }
+
+        class Main extends React.Component{
+            render(){
+                return (
+                    <div>
+                        <Text content="Just for Check." fColor="red" bColor="yellow"/>
+                        <Text content="Just for Check."/>
+                        <Text content="Just for Check." fColor="red"/>
+                    </div>
+                );
+            }
+        }
+
+        ReactDOM.render(<Main/>, document.getElementById("container"));
+    </script>
+</body>
+
+</html>

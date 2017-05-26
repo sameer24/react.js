@@ -31,7 +31,10 @@
 
         class Result extends React.Component { 
             render() { 
-                return <h2>Result: {this.props.rCount}</h2>;
+                return (<div id="parent">
+                    <h2>Result: {this.props.rCount}</h2>
+                    <input type='text' value={this.props.rCount}/>
+                </div>);
             }
         } 
 

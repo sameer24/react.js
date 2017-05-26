@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+    <div id="container"></div>
+
+    <script src="./public/scripts/react/react.js"></script>
+    <script src="./public/scripts/react/react-dom.js"></script>
+    <script src="./public/scripts/babel/browser.js"></script>
+    <script type="text/babel">
+        class Main extends React.Component{
+            constructor(){
+                super();
+                this.state = { result: 0, r2 : 12 };
+
+                this.handleChange = this.handleChange.bind(this);
+                this.handleClick = this.handleClick.bind(this);
+            }
+
+            handleChange(evt){
+                this.setState({name:evt.target.value});
+            }
+
+            handleClick(){
+                var t1 = parseInt(this.refs.t1.value);
+                var t2 = parseInt(this.refs.t2.value);
+                this.setState({result: (  t1+t2 )});
+            }
+
+            render(){
+                return (
+                    <div>
+                        <input ref="t1" type="number" defaultValue="0"/>
+                        <br/>
+                        <input ref="t2" type="number" defaultValue="0"/>
+                        <br/>
+                        <button onClick={this.handleClick}>Set</button>
+                        <br/>
+                        <label >{this.state.r2} : Result : {this.state.result}</label>
+                    </div>
+                );
+            }
+        }
+
+        ReactDOM.render(<Main/>, document.getElementById("container"));
+    </script>
+</body>
+
+</html>

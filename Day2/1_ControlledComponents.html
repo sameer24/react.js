@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body>
+    <div id="container"></div>
+
+    <script src="./public/scripts/react/react.js"></script>
+    <script src="./public/scripts/react/react-dom.js"></script>
+    <script src="./public/scripts/babel/browser.js"></script>
+    <script type="text/babel">
+        class Main extends React.Component{
+            constructor(){
+                super();
+                this.state = { name: "Manish" }
+                this.handleChange = this.handleChange.bind(this);
+                this.handleClick = this.handleClick.bind(this);
+            }
+
+            handleChange(evt){
+                this.setState({name:evt.target.value});
+            }
+
+            handleClick(){
+                this.setState({name:this.refs.t1.value});
+            }
+
+            render(){
+                return (
+                    <div>
+                        <input type="text" value="Abhijeet"/>
+                        <br/>
+                        <input type="text" value={this.state.name}/>
+                        <br/>
+                        <input type="text" value={this.state.name} onChange={this.handleChange}/>
+                        <br/>
+                        <input type="text"/>
+                        <br/>
+                        <input ref="t1" type="text" defaultValue="RK"/>
+                        <br/>
+                        <button onClick={this.handleClick}>Set</button>
+                    </div>
+                );
+            }
+        }
+
+        ReactDOM.render(<Main/>, document.getElementById("container"));
+    </script>
+</body>
+
+</html>
