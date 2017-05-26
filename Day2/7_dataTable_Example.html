@@ -44,20 +44,17 @@
                         tdArr.push(this.props.item[key]['userId'],this.props.item[key]['id']);
                         
                 }
-
+                
+                var tdstr = '';
                 this.props.item.forEach(function(item, index, array) {
-                            //console.log(item);
-                            var temp = item;
-                            temp.forEach(function(item1, index1, array1) {
-                                console.log(item1);
-                            });
-                        });
+                        tdstr +="<tr>";
+                        for (var i=0;i<4;i++){
+                            tdstr += "<td>"+item[thArr[i]]+"</td>";
+                        }
+                        tdstr +="</tr>";
+                });
 
-
-console.log(thArr);
-               
-
-                return <tr></tr>;
+                return <tr>{tdstr}</tr>;
             }
         }
 

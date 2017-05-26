@@ -1,0 +1,33 @@
+npm install -g jitsu
+npm install -g http-server
+
+jitsu install http-server
+cd http-server
+npm start
+
+---------------------------------- JSX to ES6 on Server
+npm install -g babel-cli
+npm install --save-dev babel-cli babel-preset-react
+
+babel --presets react public/scripts/src/main.js -o public/scripts/src/main-dist.js
+
+
+---------------------------------- JSX to ES5 on Server
+
+npm install -g babel-cli
+npm install --save-dev babel-cli babel-preset-react
+npm install --save-dev babel-preset-es2015
+
+babel --presets react,es2015 public/scripts/src/main.js -o public/scripts/src/main-dist1.js
+
+------------------------------------- Webpack
+
+npm install -g babel
+npm install -g babel-cli
+npm install -g touch
+
+npm install -g babel babel-cli touch
+
+npm install --save-dev webpack webpack-dev-server
+
+npm install --save-dev babel-core babel-loader babel-preset-react babel-preset-es2015
