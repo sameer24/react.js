@@ -41,8 +41,7 @@
 
                 var tdArr = new Array();
                 for(var key in this.props.item){                    
-                        tdArr.push(this.props.item[key]['userId'],this.props.item[key]['id']);
-                        
+                       // tdArr.push(this.props.item[key]['userId'],this.props.item[key]['id']);
                 }
                 
                 var tdstr = '';
@@ -66,9 +65,9 @@
                 return (
                     <table className="table">
                         <thead>
-                            {ths}
-                            {tds}
+                            {ths}                            
                         </thead>
+                        {tds}
                     </table>
                 );
             }
